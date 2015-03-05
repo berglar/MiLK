@@ -1,0 +1,14 @@
+bps 0.55
+hush
+
+d1 $ sound p"[pno:1]"
+
+d1 $ striate 8 $ sound "[lk:1]*16"
+  |+| gain "0.7"
+  
+d2 $ every 2 (0.2 <~) $ striate 2 (sound "kk:2")
+  |+| speed "[1 1.2 1.47]/4"
+
+d3 $ sound "lk:4"
+
+d1 $ sound (pick <$> "[pno, lk]" <*> run 2)
