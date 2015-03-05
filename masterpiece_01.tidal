@@ -1,7 +1,16 @@
 bps 0.55
 hush
 
-d1 $ sound p"[pno:1]"
+d5 $ sound $ "[pno:0 pno:1 pno:2 pno:3]/4"
+
+d1 $ sound $ pick <$> "pno" <*> slow 4 $ run 3
+
+d2 $ sound $ pick <$> "numbers" <*> "[1 2 3 4]/4"
+
+d2 $ silence
+
+d3 $ sound "[tabla:4 tabla:3 tabla:3 tabla:3]" 
+  |+| gain "0.75"
 
 d1 $ striate 8 $ sound "[lk:1]*16"
   |+| gain "0.7"
@@ -11,4 +20,4 @@ d2 $ every 2 (0.2 <~) $ striate 2 (sound "kk:2")
 
 d3 $ sound "lk:4"
 
-d1 $ sound (pick <$> "[pno, lk]" <*> run 2)
+d1 $ sound (pick <$> "[pno]" <*> run 2)
